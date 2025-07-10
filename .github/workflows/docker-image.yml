@@ -14,6 +14,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    environment: DOCKER_ENV
     permissions:
       contents: read
       packages: write
