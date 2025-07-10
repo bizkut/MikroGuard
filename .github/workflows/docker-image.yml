@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
@@ -45,6 +45,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         context: .
+        file: ./Dockerfile
         push: true
         platforms: linux/arm64
         tags: ${{ steps.meta.outputs.tags }}
