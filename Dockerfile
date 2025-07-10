@@ -1,5 +1,5 @@
 #Vue App
-FROM node:erbium AS vuejs
+FROM node:erbium as vuejs
 RUN mkdir -p /opt/app
 COPY frontend/ /opt/app
 RUN rm -rf /opt/app/node_modules
@@ -7,7 +7,7 @@ WORKDIR /opt/app
 RUN npm install && npm run build
 
 #Server Dependencies
-FROM docker.io/library/composer:latest AS vendor
+FROM docker.io/library/composer:latest as vendor
 WORKDIR /app
 COPY api/composer.json composer.json
 COPY api/composer.lock composer.lock
@@ -19,7 +19,7 @@ RUN composer install \
     --prefer-dist
 
 #Image
-FROM docker.io/phpswoole/swoole:6.0-php8.4-alpine AS base
+FROM docker.io/phpswoole/swoole:6.0-php8.4-alpine as base
 LABEL authors="David Smith <david@xterm.me>"
 
 RUN apk add --no-cache linux-headers
