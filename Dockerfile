@@ -7,7 +7,7 @@ WORKDIR /opt/app
 RUN npm install && npm run build
 
 #Server Dependencies
-FROM composer:latest AS vendor
+FROM docker.io/library/composer:latest AS vendor
 WORKDIR /app
 COPY api/composer.json composer.json
 COPY api/composer.lock composer.lock
