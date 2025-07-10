@@ -19,7 +19,7 @@ RUN composer install \
     --prefer-dist
 
 #Image
-FROM phpswoole/swoole:6.0-php8.4-alpine AS base
+FROM docker.io/phpswoole/swoole:6.0-php8.4-alpine AS base
 LABEL authors="David Smith <david@xterm.me>"
 
 RUN apk add --no-cache linux-headers
