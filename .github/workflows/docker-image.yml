@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - 'update-docker-workflow'
+      - 'master'
     tags:
       - 'v*'
   pull_request:
@@ -13,8 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
-    environment: DOCKER_ENV
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
